@@ -7,7 +7,7 @@ This project is Struts2-plugin for use [Thymeleaf](http://www.thymeleaf.org) tem
 
 This project fork from [Struts2-thymeleaf-plugin](https://github.com/codework/struts2-thymeleaf-plugin), Steven Benitez.
 
-##Notice
+## Notice
 
 此版本主要是解决1.0.5-REALEASE中在Spring环境中没有加载struts2的资源文件而作出的fork，代码基本跟1.0.5-REALEASE的一致。
 

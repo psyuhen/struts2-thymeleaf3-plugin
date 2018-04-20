@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package serendip.struts.plugins.thymeleaf.spring;
 
@@ -26,7 +26,7 @@ public class SpringWebContext extends AbstractContext implements IWebContext {
     public static final String BEANS_VARIABLE_NAME = "beans";
     private static final ConcurrentHashMap<ApplicationContext, HashMap<String, Object>> variableMapPrototypes =
             new ConcurrentHashMap<ApplicationContext, HashMap<String, Object>>();
-    
+
     private final ApplicationContext applicationContext;
     private final HttpServletRequest httpServletRequest;
     private final HttpServletResponse httpServletResponse;
@@ -37,7 +37,7 @@ public class SpringWebContext extends AbstractContext implements IWebContext {
      * <p>
      *   Creates a new instance of a SpringWebContext.
      * </p>
-     * 
+     *
      * @param request the request object
      * @param response the response object
      * @param servletContext the servlet context
@@ -48,15 +48,15 @@ public class SpringWebContext extends AbstractContext implements IWebContext {
     public SpringWebContext(final HttpServletRequest request,
                             final HttpServletResponse response,
                             final ServletContext servletContext ,
-                            final Locale locale, 
-                            final Map<String, ?> variables, 
+                            final Locale locale,
+                            final Map<String, ?> variables,
                             final ApplicationContext appctx) {
         //super(request, response, servletContext, locale, addSpringSpecificVariables(variables, appctx));
-    	
-    	super(locale,addSpringSpecificVariables(variables, appctx));
-    	this.httpServletRequest = request;
-    	this.httpServletResponse = response;
-    	this.servletContext = servletContext;
+
+        super(locale,addSpringSpecificVariables(variables, appctx));
+        this.httpServletRequest = request;
+        this.httpServletResponse = response;
+        this.servletContext = servletContext;
         this.applicationContext = appctx;
     }
 
@@ -82,33 +82,33 @@ public class SpringWebContext extends AbstractContext implements IWebContext {
         }
 
         return newVariables;
-        
+
     }
 
 
-    
+
     public ApplicationContext getApplicationContext() {
         return this.applicationContext;
     }
-	
-	@Override
-	public HttpServletRequest getRequest() {
-		return this.httpServletRequest;
-	}
 
-	@Override
-	public HttpServletResponse getResponse() {
-		return this.httpServletResponse;
-	}
+    @Override
+    public HttpServletRequest getRequest() {
+        return this.httpServletRequest;
+    }
 
-	@Override
-	public HttpSession getSession() {
-		return this.httpServletRequest.getSession(false);
-	}
+    @Override
+    public HttpServletResponse getResponse() {
+        return this.httpServletResponse;
+    }
 
-	@Override
-	public ServletContext getServletContext() {
-		return this.servletContext;
-	}
+    @Override
+    public HttpSession getSession() {
+        return this.httpServletRequest.getSession(false);
+    }
+
+    @Override
+    public ServletContext getServletContext() {
+        return this.servletContext;
+    }
 
 }

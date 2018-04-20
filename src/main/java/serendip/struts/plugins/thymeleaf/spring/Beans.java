@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package serendip.struts.plugins.thymeleaf.spring;
 

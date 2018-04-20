@@ -38,18 +38,18 @@ public class FieldErrorAttributeProcessor extends AbstractAttributeTagProcessor 
 
 	public FieldErrorAttributeProcessor(final String dialectPrefix) {
 		super(
-	            TemplateMode.HTML, // This processor will apply only to HTML mode
-	            dialectPrefix,     // Prefix to be applied to name for matching
-	            null,              // No tag name: match any tag name
-	            false,             // No prefix to be applied to tag name
-	            ATTR_NAME,         // Name of the attribute that will be matched
-	            true,              // Apply dialect prefix to attribute name
-	            PRECEDENCE,        // Precedence (inside dialect's own precedence)
-	            true);             // Remove the matched attribute afterwards
+				TemplateMode.HTML, // This processor will apply only to HTML mode
+				dialectPrefix,     // Prefix to be applied to name for matching
+				null,              // No tag name: match any tag name
+				false,             // No prefix to be applied to tag name
+				ATTR_NAME,         // Name of the attribute that will be matched
+				true,              // Apply dialect prefix to attribute name
+				PRECEDENCE,        // Precedence (inside dialect's own precedence)
+				true);             // Remove the matched attribute afterwards
 	}
 
 	private static final String ATTR_NAME = "value";
-    private static final int PRECEDENCE = 1010;
+	private static final int PRECEDENCE = 1010;
 
 
 
@@ -58,41 +58,41 @@ public class FieldErrorAttributeProcessor extends AbstractAttributeTagProcessor 
 	 */
 	@Override
 	protected void doProcess(ITemplateContext context, IProcessableElementTag tag, AttributeName attributeName,
-			String attributeValue, IElementTagStructureHandler structureHandler) {
+							 String attributeValue, IElementTagStructureHandler structureHandler) {
 		final IEngineConfiguration configuration = context.getConfiguration();
 
-        /*
-         * Obtain the Thymeleaf Standard Expression parser
-         */
-        final IStandardExpressionParser parser =
-                StandardExpressions.getExpressionParser(configuration);
+		/*
+		 * Obtain the Thymeleaf Standard Expression parser
+		 */
+		final IStandardExpressionParser parser =
+				StandardExpressions.getExpressionParser(configuration);
 
-        /*
-         * Parse the attribute value as a Thymeleaf Standard Expression
-         */
-        //final IStandardExpression expression = parser.parseExpression(context, attributeValue);
+		/*
+		 * Parse the attribute value as a Thymeleaf Standard Expression
+		 */
+		//final IStandardExpression expression = parser.parseExpression(context, attributeValue);
 
-        // get field name.
-        String fieldname = tag.getAttributeValue(null, "name");
+		// get field name.
+		String fieldname = tag.getAttributeValue(null, "name");
 
-        // get field value from struts2 ognl
-        Object parameterValue = getFieldValue(fieldname);
-        if ( parameterValue != null ) {
-        	structureHandler.setAttribute("value", HtmlEscape.escapeHtml5(parameterValue.toString()));
-        }
-        if ( !hasFieldError(fieldname)) {
-        	return;
-        }
+		// get field value from struts2 ognl
+		Object parameterValue = getFieldValue(fieldname);
+		if ( parameterValue != null ) {
+			structureHandler.setAttribute("value", HtmlEscape.escapeHtml5(parameterValue.toString()));
+		}
+		if ( !hasFieldError(fieldname)) {
+			return;
+		}
 
-        // add field-error css class.
-        IAttribute cssClass = tag.getAttribute("class");
-        String css = cssClass.getValue();
-        if ( StringUtils.isBlank(css)) {
-        	structureHandler.setAttribute("class", fieldErrorClass(tag));
-        } else {
-        	structureHandler.setAttribute("class", fieldErrorClass(tag) + " " + css);
-        }
-    }
+		// add field-error css class.
+		IAttribute cssClass = tag.getAttribute("class");
+		String css = cssClass.getValue();
+		if ( StringUtils.isBlank(css)) {
+			structureHandler.setAttribute("class", fieldErrorClass(tag));
+		} else {
+			structureHandler.setAttribute("class", fieldErrorClass(tag) + " " + css);
+		}
+	}
 
 	/**
 	 * If Struts2 has field-error for request parameter name , return true.

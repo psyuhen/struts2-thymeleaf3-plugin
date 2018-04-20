@@ -50,7 +50,7 @@ public class StrutsContext extends AbstractContext implements IWebContext {
 	public static final String ACTION_VARIABLE_NAME = "action";
 
 	public StrutsContext(HttpServletRequest request, HttpServletResponse response, ServletContext servletContext,
-			Locale locale,Map<String, Object> variables) {
+						 Locale locale,Map<String, Object> variables) {
 
 		super(locale,variables);
 		this.request = request;

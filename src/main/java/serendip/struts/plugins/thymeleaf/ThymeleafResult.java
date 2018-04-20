@@ -94,10 +94,10 @@ public class ThymeleafResult implements Result {
 		this.templateEngineProvider = templateEngineProvider;
 	}
 
-    @Inject
-    public void setOgnlUtil(OgnlUtil util) {
-        this.ognlUtil = util;
-    }
+	@Inject
+	public void setOgnlUtil(OgnlUtil util) {
+		this.ognlUtil = util;
+	}
 
 	public void setTemplateName(String templateName) {
 		this.templateName = templateName;

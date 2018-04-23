@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.a-pz</groupId>
+    <groupId>com.github.psyuhen</groupId>
     <artifactId>struts2-thymeleaf3-plugin</artifactId>
     <version>1.0.5.1-RELEASE</version>
     <packaging>jar</packaging>
     <name>Struts2-Thymeleaf3-plugin</name>
-    <url>https://github.com/A-pZ/struts2-thymeleaf3-plugin</url>
+    <url>https://github.com/psyuhen/struts2-thymeleaf3-plugin/tree/develop/1.0.5.1</url>
     <description>Struts2-Thymeleaf3-plugin for Struts2.5.x. This plugin is unofficial plugin.</description>
     <licenses>
         <license>
@@ -23,9 +23,10 @@
         </developer>
     </developers>
     <scm>
-        <url>https://github.com/psyuhen/struts2-thymeleaf3-plugin/tree/develop/1.0.5.1</url>
-        <connection>scm:git@github.com:psyuhen/struts2-thymeleaf3-plugin.git</connection>
-        <developerConnection>scm:git:ssh://github.com:psyuhen/struts2-thymeleaf3-plugin.git</developerConnection>
+        <tag>develop/1.0.5.1</tag>
+        <url>https://github.com/psyuhen/struts2-thymeleaf3-plugin.git</url>
+        <connection>scm:git:git@github.com:psyuhen/struts2-thymeleaf3-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:psyuhen/struts2-thymeleaf3-plugin.git</developerConnection>
     </scm>
 
     <parent>
@@ -36,18 +37,18 @@
 
     <issueManagement>
         <system>github</system>
-        <url>https://github.com/A-pZ/struts2-thymeleaf3-plugin/issues</url>
+        <url>https://github.com/psyuhen/struts2-thymeleaf3-plugin/tree/develop/1.0.5.1/issues</url>
     </issueManagement>
 
     <distributionManagement>
         <snapshotRepository>
-            <id>com.github.a-pz</id>
+            <id>sonatype-nexus-snapshots</id>
             <name>Nexus Snapshot Repository</name>
             <uniqueVersion>false</uniqueVersion>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>com.github.a-pz</id>
+            <id>sonatype-nexus-staging</id>
             <name>Nexus Release Repository</name>
             <uniqueVersion>false</uniqueVersion>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/
